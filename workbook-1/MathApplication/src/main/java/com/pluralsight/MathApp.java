@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+// TODO: ADD MEANINGFUL OUTPUT MESSAGES
+
 public class MathApp {
     public static void main(String[] args) {
         // Question 1:
@@ -34,7 +36,16 @@ public class MathApp {
         System.out.println(Math.sqrt(x));
 
         // 5. Display distance between points (5,10) and (85,50)
-        double pointsDistance = Math.hypot(85-5, 50-10);
+
+        double x1 = 5;
+        double y1 = 10;
+        double x2 = 85;
+        double y2 = 50;
+
+        double deltaX = x2 - x1;
+        double deltaY = y2 - y1;
+
+        double pointsDistance = Math.hypot(deltaX, deltaY);
 
         System.out.println(pointsDistance);
 
