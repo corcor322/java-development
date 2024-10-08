@@ -17,7 +17,6 @@ public class Stories {
 
         int input = scanner.nextInt();
 
-        // Corrected the condition to use && for range checking
         if (input >= 1 && input <= 3) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(files[input - 1])))) {
                 String storyLine;
