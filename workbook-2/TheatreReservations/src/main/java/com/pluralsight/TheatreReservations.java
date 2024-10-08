@@ -1,30 +1,36 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class TheatreReservations {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String name = "";
-        String date = "";
-        int ticketNum ="";
 
-        DateTimeFormatter formatter;
-        formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
-        date = date.parse(date, formatter);
-        System.out.println(date);
+        System.out.print("Please enter your name: ");
+        String fullName = scanner.nextLine();
 
+        int indexOfSpace = fullName.indexOf(" ");
+        String firstName = fullName.substring(0, indexOfSpace);
+        String lastName = fullName.substring(indexOfSpace + 1);
 
+        System.out.print("What date will you be coming (MM/dd/yyyy): ");
+        String dateStr = scanner.nextLine();
 
-        // Ask users name
-        // Ask date
-        // Ask # of tickets needed
-        // if 2 or more tickets reserved, return number tickets reserved
-        // if 1 return 1 ticket reserved
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate date = LocalDate.parse(dateStr, formatter);
+
+        System.out.print("How many tickets would you like? ");
+        int numTickets = scanner.nextInt();
+
+        String ticketString = numTickets == 1 ? " ticket" : " tickets";
+        String confirmationMessage = numTickets + ticketString + " reserved for " + date + " under " + lastName + ", " + firstName;
+        System.out.println(confirmationMessage);
+
+        scanner.close();
     }
 
-    public static String returnDate(Scanner scanner, String date, DateTimeFormatter formatter) {
 
-    }
 }
