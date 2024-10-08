@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+//TODO: Update quotes, add loop to see more quotes, add random quote option
+
 import java.util.Scanner;
 
 public class main {
@@ -29,7 +31,7 @@ public class main {
             System.out.println(quotes[input - 1]);
         } catch (Exception outOfBounds) {
             System.out.println("Hmm...that's not right.");
-            outOfBounds.printStackTrace();
+
         }
 
     }
