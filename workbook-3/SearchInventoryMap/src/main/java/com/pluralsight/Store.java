@@ -1,5 +1,5 @@
 package com.pluralsight;
-//TODO: Add Bonus Loop
+//TODO: Replace key with item name instead of number, Add Bonus Loop, Add trycatch
 import java.util.HashMap;
 import java.util.Scanner;
 
