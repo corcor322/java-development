@@ -34,4 +34,26 @@ public class Room {
     public boolean isAvailable() {
         return isAvailable;
     }
+    public void checkIn() {
+        if (isOccupied == false && isDirty == false) {
+            isOccupied = true;
+            isDirty = true;
+            System.out.println("Enjoy your stay!");
+        } else {
+            System.out.println("Sorry, room unavailable.");
+        }
+    }
+    public void checkOut() {
+        if (isOccupied == true) {
+            isOccupied = false;
+            System.out.println("Thank you for choosing Hotel. Safe travels!");
+        } else
+            System.out.println("Room not currently occupied.");
+
+    }
+    public void cleanRoom() {
+        if (isOccupied == false && isDirty == true) {
+            isDirty = true;
+        }
+    }
 }

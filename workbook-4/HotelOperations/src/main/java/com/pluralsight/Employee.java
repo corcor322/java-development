@@ -61,4 +61,10 @@ public class Employee {
     public double getTotalPay () {
         return (getRegularHours() * payRate) + (getOvertimeHours() * payRate * 1.5);
     }
+    public void punchTimeCard() {
+        boolean isClockedIn = false;
+        // Start time
+        // End time
+        hoursWorked = hoursWorked + (endTime - startTime)// End time - Start time -> add to hours worked
+    }
 }
