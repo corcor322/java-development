@@ -1,13 +1,13 @@
 package com.pluralsight;
-//TODO: Replace key with item name instead of number, Add Bonus Loop, Add trycatch
+//TODO: Replace key with item name instead of number, Add Bonus Loop, Add try-catch
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Store {
 
-    // the key is the product id, the value is a product object
-    static HashMap<Integer, Product> inventory =
-            new HashMap<Integer, Product>();
+    // the key is the product name, the value is the price
+    static HashMap<String, Product> inventory =
+            new HashMap<>();
     public static void main(String[] args) {
 
 
@@ -15,8 +15,8 @@ public class Store {
         loadInventory();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("What item # are you interested in? ");
-        int id = scanner.nextInt();
+        System.out.print("What item are you interested in? ");
+        String id = scanner.nextLine();
 
         Product matchedProduct = inventory.get(id);
 
