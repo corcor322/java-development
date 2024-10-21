@@ -1,13 +1,10 @@
 package com.pluralsight;
-
+//TODO: Add constructor with if/else condition for price
 public class Reservation {
     private String roomType;
     private double price;
     private boolean isWeekend;
     private int numberOfNights;
-    //Room type can be king or double
-    //king is 139pnight double is 124pnight
-    //if over weekend increase price by 10%
 
     public String getRoomType() {
         return roomType;
