@@ -35,7 +35,7 @@ public class Room {
         return isAvailable;
     }
     public void checkIn() {
-        if (isOccupied == false && isDirty == false) {
+        if (isAvailable()) {
             isOccupied = true;
             isDirty = true;
             System.out.println("Enjoy your stay!");

@@ -1,70 +1,93 @@
 package com.pluralsight;
-//TODO: Finish punchtimecard method
+
+import java.time.LocalDateTime;
+
 public class Employee {
-    private long employeeId;
+    private int employeeId;
     private String name;
     private String department;
-    private float payRate;
-    private float hoursWorked;
+    private double payRate;
+    private double hoursWorked;
+    private double startTime;
 
-    public long getEmployeeId() {
-        return employeeId;
+    public Employee(int employeeId, String name, String department, double payRate) {
+        this.employeeId = employeeId;
+        this.name = name;
+        this.department = department;
+        this.payRate = payRate;
+        this.hoursWorked = 0;
+        this.startTime = 0;
     }
 
-    public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public float getPayRate() {
+    public double getPayRate() {
         return payRate;
     }
 
-    public void setPayRate(float payRate) {
-        this.payRate = payRate;
-    }
-
-    public float getHoursWorked() {
+    public double getHoursWorked() {
         return hoursWorked;
     }
 
-    public void setHoursWorked(float hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void punchIn(double time) {
+        startTime = time;
     }
-    public float getRegularHours () {
+    public void punchIn() {
+        LocalDateTime start = LocalDateTime.now();
+        startTime = start.getHour() + (start.getMinute() / 60);
+    }
+
+    public void punchOut(double time) {
+        double duration = time - startTime;
+        hoursWorked += duration;
+        startTime = 0;
+    }
+    public void punchOut() {
+        LocalDateTime end = LocalDateTime.now();
+        double endTime = end.getHour() + (end.getMinute() / 60);
+    }
+
+    public void punchTimeCard(double time) {
+        if (startTime == 0) {
+            startTime = time;
+        } else {
+            double duration = time - startTime;
+            hoursWorked += duration;
+            startTime = 0;
+        }
+    }
+
+    public double getTotalPay() {
+        if (hoursWorked <= 40) {
+            return hoursWorked * payRate;
+        } else {
+            return (40 * payRate) + ((hoursWorked - 40) * (payRate * 1.5));
+        }
+    }
+
+    public double getRegularHours() {
         if (hoursWorked <= 40) {
             return hoursWorked;
-        } else
+        } else {
             return 40;
+        }
     }
-    public float getOvertimeHours () {
+
+    public double getOvertimeHours() {
         if (hoursWorked > 40) {
             return hoursWorked - 40;
-        } else
+        } else {
             return 0;
-    }
-    public double getTotalPay () {
-        return (getRegularHours() * payRate) + (getOvertimeHours() * payRate * 1.5);
-    }
-    public void punchTimeCard() {
-        boolean isClockedIn = false;
-        // Start time
-        // End time
-        hoursWorked = hoursWorked + (endTime - startTime)// End time - Start time -> add to hours worked
+        }
     }
 }
