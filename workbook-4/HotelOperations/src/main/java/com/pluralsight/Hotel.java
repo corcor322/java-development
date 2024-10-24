@@ -16,9 +16,17 @@ public class Hotel {
     }
     Hotel (String name, int numberOfSuites, int numberOfRooms, int bookedSuites, int bookedBasicRooms) {
         this.name = name;
-        this.numberOfSuites = 0;
-        this.numberOfRooms = 0;
+        this.numberOfSuites = numberOfSuites;
+        this.numberOfRooms = numberOfRooms;
         this.bookedSuites = bookedSuites;
         this.bookedBasicRooms = bookedBasicRooms;
+    }
+    public boolean bookRoom(int numberOfRooms, boolean isSuite) {
+        if (numberOfRooms > 1) {
+            return true;
+            //numberOfRooms--;
+        }
+        else
+            return false;
     }
 }
