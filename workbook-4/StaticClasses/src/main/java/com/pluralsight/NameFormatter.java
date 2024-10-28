@@ -5,7 +5,7 @@ public class NameFormatter {
 
     }
     public static String format(String firstName, String lastName) {
-        return format("", firstName, "", lastName, "")
+        return format("", firstName, "", lastName, "");
     }
     public static String format(String prefix, String firstName, String middleName, String lastName, String suffix) {
         StringBuilder formattedName = new StringBuilder();
@@ -25,7 +25,7 @@ public class NameFormatter {
             formattedName.append(", ").append(suffix);
         }
 
-        return formattedName.toString().trim()
+        return formattedName.toString().trim();
     }
     public static String format(String fullName) {
         return fullName;
