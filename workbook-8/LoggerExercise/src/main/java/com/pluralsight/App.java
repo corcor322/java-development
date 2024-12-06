@@ -1,3 +1,4 @@
+package com.pluralsight;
 import org.apache.log4j.Logger;
 public class App {
     final static Logger logger = Logger.getLogger(App.class);
@@ -12,4 +13,7 @@ public class App {
             logger.info("This is info : " + input);
         }
         logger.warn("This is warn : " + input);
-        logger.error("This is error : " + input);        logger.fatal("This is fatal : " + input);    }}
+        logger.error("This is error : " + input);
+        logger.fatal("This is fatal : " + input);
+    }
+}
