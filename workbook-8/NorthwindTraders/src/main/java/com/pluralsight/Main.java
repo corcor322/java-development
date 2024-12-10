@@ -8,47 +8,50 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Check for command line arguments for username and password
-        if (args.length != 2) {
-            System.out.println("Application needs two arguments to run: " +
-                    "java com.pluralsight.Main <username> <password>");
-            System.exit(1);
-        }
-
-        String username = args[0];
-        String password = args[1];
-
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/northwind");
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("What do you want to do?");
-            System.out.println("1) Display all products");
-            System.out.println("2) Display all customers");
-            System.out.println("3) Display all categories");
-            System.out.println("0) Exit");
-            System.out.print("Select an option: ");
-
-            int choice = scanner.nextInt();
-
-            switch (choice) {
-                case 1:
-                    displayAllProducts(username, password);
-                    break;
-                case 2:
-                    displayAllCustomers(username, password);
-                    break;
-
-                case 0:
-                    System.out.println("Exiting...");
-                    return;
-                default:
-                    System.out.println("Invalid option. Please try again.");
-                    break;
+        try {
+            if (args.length != 2) {
+                System.out.println("Application needs two arguments to run: " +
+                        "java com.pluralsight.Main <username> <password>");
+                System.exit(1);
             }
+
+            String username = args[0];
+            String password = args[1];
+
+            BasicDataSource dataSource = new BasicDataSource();
+            dataSource.setUrl("jdbc:mysql://localhost:3306/northwind");
+            dataSource.setUsername(username);
+            dataSource.setPassword(password);
+
+            Scanner scanner = new Scanner(System.in);
+
+            while (true) {
+                System.out.println("What do you want to do?");
+                System.out.println("1) Display all products");
+                System.out.println("2) Display all customers");
+                System.out.println("3) Display all categories");
+                System.out.println("0) Exit");
+                System.out.print("Select an option: ");
+
+                int choice = scanner.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        displayAllProducts(username, password);
+                        break;
+                    case 2:
+                        displayAllCustomers(username, password);
+                        break;
+                    case 0:
+                        System.out.println("Exiting...");
+                        return;
+                    default:
+                        System.out.println("Invalid option. Please try again.");
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +111,6 @@ public class Main {
     }
 
     private static void displayAllCustomers(String username, String password) {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet results = null;
